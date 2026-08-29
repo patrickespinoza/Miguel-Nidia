@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Vestimenta = () => {
-
   const fadeUp = {
     hidden: {
       opacity: 0,
@@ -13,159 +12,198 @@ const Vestimenta = () => {
       y: 0,
       transition: {
         duration: 1,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   return (
-    <div className="w-full bg-[#F7F4ED] py-2 px-0 flex items-center justify-center overflow-hidden">
-
+    <section
+      className="
+        w-full
+        bg-[#7F8D7D]
+        py-16
+        sm:py-20
+        px-5
+        sm:px-8
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+      "
+    >
       <motion.div
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         className="
-          relative max-w-6xl w-full
-          bg-white
-          rounded-tl-[3rem] sm:rounded-tl-[4rem]
-          rounded-br-[3rem] sm:rounded-br-[4rem]
-          rounded-tr-[1rem]
-          rounded-bl-[1rem]
-          shadow-[0_15px_50px_rgba(0,0,0,0.12)]
+          relative
+          max-w-6xl
+          w-full
+          bg-[#F4EFE4]
           overflow-hidden
-          grid grid-cols-1 lg:grid-cols-2
+          grid
+          grid-cols-1
+          lg:grid-cols-2
         "
       >
-
         {/* IMAGEN */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           viewport={{ once: true }}
           className="
             relative
-            h-[280px]
+            h-[300px]
             sm:h-[420px]
             md:h-[500px]
             lg:h-full
-            min-h-[300px]
+            min-h-[360px]
           "
         >
-
           <img
             src="/dress-code2.png"
-            alt="Vestimenta"
+            alt="Código de vestimenta formal"
             className="
-              w-full h-full
+              w-full
+              h-full
               object-cover
               object-center
             "
           />
 
-          {/* Overlay elegante */}
-          <div className="absolute inset-0 bg-black/10"></div>
-
+          {/* Overlay suave */}
+          <div className="absolute inset-0 bg-black/5" />
         </motion.div>
 
-        {/* TEXTO */}
+        {/* CONTENIDO */}
         <div
           className="
-            flex flex-col items-center justify-center
+            relative
+            flex
+            flex-col
+            items-center
+            justify-center
             text-center
-            p-8
-            sm:p-12
-            lg:p-16
+            px-7
+            py-14
+            sm:px-12
+            sm:py-16
+            lg:px-16
           "
         >
+          {/* LÍNEA SUPERIOR */}
+          <div
+            className="
+              absolute
+              top-0
+              left-1/2
+              -translate-x-1/2
+              w-24
+              h-px
+              bg-[#7F8D7D]/70
+            "
+          />
 
+          {/* SUBTÍTULO */}
           <motion.p
-            initial={{ opacity: 0, letterSpacing: "0.5em" }}
-            whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
+            initial={{ opacity: 0, letterSpacing: "0.35em" }}
+            whileInView={{
+              opacity: 1,
+              letterSpacing: "0.22em",
+            }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
             className="
               uppercase
               text-[11px]
               sm:text-sm
-              tracking-[0.2em]
-              text-[#B89B5E]
-              font-semibold
+              tracking-[0.22em]
+              text-[#7F8D7D]
+              font-medium
             "
           >
             Código de Vestimenta
           </motion.p>
 
+          {/* DECORACIÓN */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 1, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="
+              flex
+              items-center
+              justify-center
+              gap-3
+              mt-5
+            "
+          >
+          </motion.div>
+
+          {/* TÍTULO */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
             className="
+              font-playfair
               text-3xl
               sm:text-4xl
               md:text-5xl
-              lg:text-6xl
-              font-playfair
               text-black
-              mt-5
+              mt-7
               leading-tight
             "
           >
             Vestimenta Formal
           </motion.h1>
 
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "6rem" }}
+          {/* TEXTO */}
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
             viewport={{ once: true }}
-            className="h-[2px] bg-[#B89B5E] mt-6"
-          />
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            viewport={{ once: true }}
             className="
-              mt-6 sm:mt-8
-              text-base
-              sm:text-lg
-              md:text-xl
+              mt-7
+              text-sm
+              sm:text-base
+              md:text-lg
               text-black/70
               leading-relaxed
               max-w-md
-              font-[DancingScript]
             "
           >
-            Queremos compartir contigo una noche elegante y especial.
-            Te invitamos a asistir con vestimenta formal para celebrar
+            Queremos compartir contigo una celebración elegante y especial.
+            Te invitamos a acompañarnos con vestimenta formal para disfrutar
             juntos este momento inolvidable.
           </motion.p>
 
-          {/* FRASE */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            viewport={{ once: true }}
+
+
+          {/* LÍNEA INFERIOR */}
+          <div
             className="
-              mt-8 sm:mt-10
-              text-[#B89B5E]
-              text-xs sm:text-sm
-              tracking-[0.2em]
-              text-center
+              absolute
+              bottom-0
+              left-1/2
+              -translate-x-1/2
+              w-24
+              h-px
+              bg-[#7F8D7D]/70
             "
-          >
-            ✦ Elegancia • Glamour • Celebración ✦
-          </motion.div>
-
+          />
         </div>
-
       </motion.div>
-    </div>
+    </section>
   );
 };
 
