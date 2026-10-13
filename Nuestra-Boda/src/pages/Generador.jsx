@@ -9,7 +9,6 @@ import {
   Users,
   UserRound,
   ExternalLink,
-  ChevronDown,
 } from "lucide-react";
 
 /* =========================================
@@ -28,8 +27,6 @@ const palette = {
 };
 
 const NOVIOS = "Miguel & Nidia";
-
-const OPCIONES_PASES = [1, 2, 3, 4, 5, 6];
 
 const INVITACION_URL =
   `${window.location.origin}/`;
@@ -110,9 +107,13 @@ export default function Generador() {
       return;
     }
 
-    if (!OPCIONES_PASES.includes(numeroPases)) {
+    if (
+      pases.trim() === "" ||
+      !Number.isSafeInteger(numeroPases) ||
+      numeroPases < 1
+    ) {
       setError(
-        "Selecciona una cantidad válida de pases."
+        "Ingresa una cantidad válida de pases."
       );
       return;
     }
@@ -264,9 +265,7 @@ Con cariño,
         color: palette.ink,
       }}
     >
-      {/* =====================================
-          ENCABEZADO
-      ===================================== */}
+      {/* ENCABEZADO */}
 
       <motion.header
         initial={{
@@ -358,9 +357,7 @@ Con cariño,
         </p>
       </motion.header>
 
-      {/* =====================================
-          CONTENIDO PRINCIPAL
-      ===================================== */}
+      {/* CONTENIDO PRINCIPAL */}
 
       <div
         className="
@@ -373,9 +370,7 @@ Con cariño,
           items-start
         "
       >
-        {/* ===================================
-            COLUMNA IZQUIERDA
-        =================================== */}
+        {/* COLUMNA IZQUIERDA */}
 
         <motion.section
           initial={{
@@ -423,6 +418,7 @@ Con cariño,
           />
 
           {/* NOMBRE */}
+
           <div className="mt-7">
             <label
               htmlFor="nombre-invitado"
@@ -431,16 +427,11 @@ Con cariño,
                 color: palette.oliveDark,
               }}
             >
-              <span
-                className="
-                  flex items-center gap-2
-                "
-              >
+              <span className="flex items-center gap-2">
                 <UserRound
                   size={15}
                   className="shrink-0"
                 />
-
                 Nombre o familia
               </span>
             </label>
@@ -462,9 +453,7 @@ Con cariño,
             />
           </div>
 
-          {/* ===================================
-              DROPDOWN DE PASES
-          =================================== */}
+          {/* NÚMERO DE PASES MANUAL */}
 
           <div className="mt-6">
             <label
@@ -474,80 +463,46 @@ Con cariño,
                 color: palette.oliveDark,
               }}
             >
-              <span
-                className="
-                  flex items-center gap-2
-                "
-              >
+              <span className="flex items-center gap-2">
                 <Users
                   size={15}
                   className="shrink-0"
                 />
-
                 Número de pases
               </span>
             </label>
 
-            <div className="relative w-full min-w-0">
-              <select
-                id="pases-invitado"
-                value={pases}
-                onChange={(e) => {
-                  setPases(e.target.value);
-                  limpiarResultado();
-                }}
-                className={`
-                  ${inputClass}
-                  appearance-none
-                  cursor-pointer
-                  pr-12
-                `}
-                style={{
-                  borderColor: palette.border,
-                }}
-              >
-                {OPCIONES_PASES.map(
-                  (cantidad) => (
-                    <option
-                      key={cantidad}
-                      value={cantidad}
-                    >
-                      {cantidad}{" "}
-                      {cantidad === 1
-                        ? "pase"
-                        : "pases"}
-                    </option>
-                  )
-                )}
-              </select>
-
-              <ChevronDown
-                size={18}
-                className="
-                  pointer-events-none
-                  absolute right-4 top-1/2
-                  -translate-y-1/2
-                "
-                style={{
-                  color: palette.oliveDark,
-                }}
-              />
-            </div>
+            <input
+              id="pases-invitado"
+              type="number"
+              min="1"
+              step="1"
+              inputMode="numeric"
+              placeholder="Ej. 4"
+              value={pases}
+              onChange={(e) => {
+                setPases(e.target.value);
+                limpiarResultado();
+              }}
+              className={inputClass}
+              style={{
+                borderColor: palette.border,
+              }}
+            />
 
             <p
-              className="
-                mt-2 text-xs leading-5
-              "
+              className="mt-2 text-xs leading-5"
               style={{
                 color: palette.muted,
               }}
             >
-              Lugares reservados para este
-              invitado o familia.
+              Escribe la cantidad de pases que deseas
+              asignar a este invitado o familia.
             </p>
           </div>
 
           {/* ERROR */}
+
           {error && (
             <p
               role="alert"
@@ -561,6 +516,7 @@ Con cariño,
           )}
 
           {/* GENERAR LINK */}
+
           <button
             type="button"
             onClick={generarLink}
@@ -578,15 +534,10 @@ Con cariño,
               size={17}
               className="shrink-0"
             />
-
-            <span>
-              Generar invitación
-            </span>
+            <span>Generar invitación</span>
           </button>
 
-          {/* ===================================
-              ENLACE GENERADO
-          =================================== */}
+          {/* ENLACE GENERADO */}
 
           {link && (
             <motion.div
@@ -615,7 +566,6 @@ Con cariño,
                 Enlace personalizado
               </p>
 
-              {/* CONTENEDOR RESPONSIVE */}
               <div
                 className="
                   w-full min-w-0
@@ -648,6 +598,7 @@ Con cariño,
               </div>
 
               {/* BOTONES RESPONSIVE */}
+
               <div
                 className="
                   mt-3 grid
@@ -707,17 +658,13 @@ Con cariño,
                     className="shrink-0"
                   />
 
-                  <span>
-                    Ver invitación
-                  </span>
+                  <span>Ver invitación</span>
                 </a>
               </div>
             </motion.div>
           )}
 
-          {/* ===================================
-              MENSAJE PARA WHATSAPP
-          =================================== */}
+          {/* MENSAJE PARA WHATSAPP */}
 
           {link && (
             <motion.div
@@ -748,16 +695,11 @@ Con cariño,
                   color: palette.oliveDark,
                 }}
               >
-                <span
-                  className="
-                    flex items-center gap-2
-                  "
-                >
+                <span className="flex items-center gap-2">
                   <MessageCircle
                     size={16}
                     className="shrink-0"
                   />
-
                   Mensaje para WhatsApp
                 </span>
               </p>
@@ -778,6 +720,7 @@ Con cariño,
               </p>
 
               {/* EDITOR RESPONSIVE */}
+
               <textarea
                 value={mensaje}
                 onChange={(e) => {
@@ -844,9 +787,7 @@ Con cariño,
           )}
         </motion.section>
 
-        {/* ===================================
-            COLUMNA DERECHA
-        =================================== */}
+        {/* COLUMNA DERECHA */}
 
         <motion.section
           initial={{
@@ -890,6 +831,7 @@ Con cariño,
           </h2>
 
           {/* PORTADA */}
+
           <div
             className="
               mt-6 sm:mt-7
@@ -914,9 +856,7 @@ Con cariño,
             />
           </div>
 
-          {/* ===================================
-              VISTA PREVIA WHATSAPP
-          =================================== */}
+          {/* VISTA PREVIA WHATSAPP */}
 
           {link && (
             <motion.div
@@ -951,7 +891,6 @@ Con cariño,
                 Vista previa del mensaje
               </p>
 
-              {/* CONTENEDOR */}
               <div
                 className="
                   w-full min-w-0
@@ -963,6 +902,7 @@ Con cariño,
                 "
               >
                 {/* CABECERA */}
+
                 <div
                   className="
                     flex min-w-0
@@ -1009,6 +949,7 @@ Con cariño,
                 </div>
 
                 {/* BURBUJA */}
+
                 <div
                   className="
                     w-full min-w-0
@@ -1060,6 +1001,7 @@ Con cariño,
           )}
 
           {/* NOTA INFORMATIVA */}
+
           <div
             className="
               mt-8
