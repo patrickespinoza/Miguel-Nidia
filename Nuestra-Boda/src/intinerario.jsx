@@ -21,17 +21,6 @@ export default function Itinerario() {
 
       <Intinerario2/>
 
-
-      {/* IMAGEN FINAL */}
-      <div className="flex flex-col items-center justify-center bg-[#F7F4ED]">
-
-        <img
-          src="/finalboda.webp"
-          alt="acepto"
-          className="w-full max-w-5xl object-cover"
-        />
-
-      </div>
       <ConfirmacionAsistencia/>
     </div>
   );
