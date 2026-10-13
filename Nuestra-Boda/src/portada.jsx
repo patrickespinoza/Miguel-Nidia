@@ -33,7 +33,7 @@ export default function Portada() {
       >
         {/* IMAGEN DE FONDO */}
         <img
-          src="/portada.jpg"
+          src="/portada1.jpg"
           alt="Miguel y Nidia"
           className="
             absolute
