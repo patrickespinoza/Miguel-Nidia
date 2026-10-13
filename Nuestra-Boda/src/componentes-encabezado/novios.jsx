@@ -230,7 +230,7 @@ const Novios = () => {
                   leading-relaxed
                 "
               >
-                Nombre del padre
+               Andrés López González †
               </p>
 
               <p
@@ -242,7 +242,7 @@ const Novios = () => {
                   leading-relaxed
                 "
               >
-                Nombre de la madre
+                María de Jesús González Herrera  †
               </p>
             </div>
           </motion.div>

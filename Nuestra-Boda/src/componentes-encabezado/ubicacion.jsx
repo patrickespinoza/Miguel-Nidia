@@ -6,17 +6,11 @@ const Celebracion = ({
   fecha = "19",
   mesAnio = "Diciembre 2026",
 
-  titulo1 = "Ceremonia Religiosa",
-  hora1 = "4:30 PM",
-  lugar1 = "Nombre de la Iglesia",
-  direccion1 = "Dirección de la ceremonia",
-  ubicacion1 = "#",
-
   titulo2 = "Recepción",
-  hora2 = "6:00 PM",
-  lugar2 = "Nombre del Salón",
-  direccion2 = "Dirección de la recepción",
-  ubicacion2 = "#",
+  hora2 = "8:00 PM",
+  lugar2 = "Obispado Eventos",
+  direccion2 = "Francisco Garza Sada 2940-PB y 3er Piso, Deportivo Obispado, 64040 Monterrey, N.L.",
+  ubicacion2 = "https://maps.app.goo.gl/zYudBrWzSkDEwGFF8",
 }) => {
   return (
     <section
@@ -114,145 +108,11 @@ const Celebracion = ({
         {/* EVENTOS */}
         <div
           className="
-            grid
-            grid-cols-1
-            md:grid-cols-2
             gap-7
             md:gap-8
           "
         >
-          {/* EVENTO 1 */}
-          <motion.div
-            initial={{ opacity: 0, x: -35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.9,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            viewport={{ once: true }}
-            className="
-              bg-white
-              border
-              border-[#7F8D7D]/25
-              px-7
-              sm:px-10
-              py-10
-              sm:py-12
-              text-center
-              relative
-              overflow-hidden
-            "
-          >
-            {/* LÍNEA SUPERIOR */}
-            <div
-              className="
-                absolute
-                top-0
-                left-1/2
-                -translate-x-1/2
-                w-24
-                h-px
-                bg-[#7F8D7D]/70
-              "
-            />
-
-            <p
-              className="
-                uppercase
-                tracking-[0.25em]
-                text-[#7F8D7D]
-                text-xs
-                sm:text-sm
-              "
-            >
-              {titulo1}
-            </p>
-
-            <div
-              className="
-                flex
-                items-center
-                justify-center
-                gap-3
-                my-6
-              "
-            >
-              <span className="w-9 h-px bg-[#7F8D7D]/50" />
-
-              <span className="text-[#7F8D7D]">
-                ♡
-              </span>
-
-              <span className="w-9 h-px bg-[#7F8D7D]/50" />
-            </div>
-
-            <p
-              className="
-                font-playfair
-                text-3xl
-                sm:text-4xl
-                text-black
-              "
-            >
-              {hora1}
-            </p>
-
-            <div className="mt-8">
-              <p
-                className="
-                  font-playfair
-                  text-xl
-                  sm:text-2xl
-                  text-black
-                  leading-snug
-                "
-              >
-                {lugar1}
-              </p>
-
-              <p
-                className="
-                  mt-4
-                  text-sm
-                  sm:text-base
-                  text-black/65
-                  leading-relaxed
-                  max-w-md
-                  mx-auto
-                "
-              >
-                {direccion1}
-              </p>
-            </div>
-
-            <a
-              href={ubicacion1}
-              target="_blank"
-              rel="noreferrer"
-              className="
-                inline-flex
-                items-center
-                justify-center
-                mt-8
-                bg-[#7F8D7D]
-                text-white
-                uppercase
-                tracking-[0.18em]
-                text-xs
-                sm:text-sm
-                px-7
-                py-3
-                transition
-                duration-300
-                hover:bg-[#6F7C6D]
-                hover:-translate-y-0.5
-              "
-            >
-              Ver Ubicación
-            </a>
-          </motion.div>
-
+          
           {/* EVENTO 2 */}
           <motion.div
             initial={{ opacity: 0, x: 35 }}

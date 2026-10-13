@@ -33,7 +33,7 @@ export default function Portada() {
       >
         {/* IMAGEN DE FONDO */}
         <img
-          src="/portada.png"
+          src="/portada.jpg"
           alt="Miguel y Nidia"
           className="
             absolute
@@ -90,7 +90,7 @@ export default function Portada() {
               drop-shadow-lg
           "
           >
-            Miguel & Nidia
+            Miguel & Carolina
           </h1>
 
           {/* LÍNEA DECORATIVA */}

@@ -3,8 +3,8 @@ import { Music, Pause, Play, VolumeX } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Musica = ({
-  src = "/cancion.mp3",
-  titulo = "Miguel & Nidia",
+  src = "/musica.mp3",
+  titulo = "Miguel & Carolina",
 }) => {
   const audioRef = useRef(null);
 
